@@ -17,7 +17,7 @@
         <!-- Meniu Navigare -->
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container-fluid">
-                <a href="/medapp/index.php" class="navbar-brand">MedApp</a>
+                <a href="/medapp/index.php" class="navbar-brand <?php echo ($pag == "index.php") ? "active" : "" ?>">MedApp</a>
                 
                 <!-- Buton ascundere meniu cand e ecranul prea mic -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
@@ -26,29 +26,36 @@
 
                 <!-- Optiuni Meniu -->
                 <div class="collapse navbar-collapse" id="navmenu">
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="/medapp/html/medici.php" class="nav-link">Medici</a>
+                            <a href="/medapp/html/medici.php" class="nav-link <?php echo ($pag == "medici.php") ? "active" : "" ?>">Medici</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/medapp/html/pacienti.php" class="nav-link">Pacienti</a>
+                            <a href="/medapp/html/pacienti.php" class="nav-link <?php echo ($pag == "pacienti.php") ? "active" : "" ?>">Pacienti</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/medapp/html/consultatii.php" class="nav-link">Consultatii</a>
+                            <a href="/medapp/html/consultatii.php" class="nav-link <?php echo ($pag == "consultatii.php") ? "active" : "" ?>">Consultatii</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/medapp/html/plati.php" class="nav-link">Plati</a>
+                            <a href="/medapp/html/plati.php" class="nav-link <?php echo ($pag == "plati.php") ? "active" : "" ?>">Plati</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/medapp/html/programari.php" class="nav-link">Programari</a>
+                            <a href="/medapp/html/programari.php" class="nav-link <?php echo ($pag == "programari.php") ? "active" : "" ?>">Programari</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/medapp/html/catalog.php" class="nav-link">Catalog</a>
+                            <a href="/medapp/html/catalog.php" class="nav-link <?php echo ($pag == "catalog.php") ? "active" : "" ?>">Catalog</a>
                         </li>
                     </ul>
                 </div>
+
+                <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
             </div>
         </nav>
 
         <div class="container">      
             <div class="row mt-5">
+                <div class="bg-light rounded-3 col-md-12">
+                    <div class="container-fluid py-5 p-5">
