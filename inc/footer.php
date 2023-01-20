@@ -1,3 +1,6 @@
+            </div>
+        </div>
+        
         <footer class="text-center mt-5">
             Copyright MedApp &copy; <?php echo date('Y') ?>
         </footer>

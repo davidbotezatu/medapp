@@ -1,3 +1,7 @@
+<?php 
+    $pag = basename($_SERVER['PHP_SELF']);
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,7 +9,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Login</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+        <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
     </head>
 
     <body>
@@ -21,7 +26,7 @@
 
                 <!-- Optiuni Meniu -->
                 <div class="collapse navbar-collapse" id="navmenu">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a href="/medapp/html/medici.php" class="nav-link">Medici</a>
                         </li>
@@ -35,21 +40,15 @@
                             <a href="/medapp/html/plati.php" class="nav-link">Plati</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/medapp/html/catalog.php" class="nav-link">Catalog</a>
+                            <a href="/medapp/html/programari.php" class="nav-link">Programari</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/medapp/html/programari.php" class="nav-link">Programari</a>
+                            <a href="/medapp/html/catalog.php" class="nav-link">Catalog</a>
                         </li>
                     </ul>
                 </div>
-
-                <!-- Search bar -->
-                <div class="collapse navbar-collapse justify-content-end" id="navmenu">
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
-
             </div>
         </nav>
+
+        <div class="container">      
+            <div class="row mt-5">
