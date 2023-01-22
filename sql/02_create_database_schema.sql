@@ -1,5 +1,5 @@
 CREATE TABLE medic (
-    cnp INT PRIMARY KEY,
+    cnp CHAR(13) PRIMARY KEY,
     nume VARCHAR(50),
     prenume VARCHAR (50),
     adresa VARCHAR (100),
@@ -18,7 +18,7 @@ CREATE TABLE pacient (
 );
 
 CREATE TABLE catalog (
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     nume_interventie VARCHAR(100),
     cost_materiale INT,
     pret_manopera INT,
@@ -26,16 +26,16 @@ CREATE TABLE catalog (
 );
 
 CREATE TABLE programare (
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     pacient INT,
-    medic INT,
+    medic CHAR(13),
     data_programarii DATE,
     FOREIGN KEY (pacient) REFERENCES pacient(nr_fisa),
     FOREIGN KEY (medic) REFERENCES medic(cnp)
 );
 
 CREATE TABLE consultatie (
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     programare INT,
     observatii VARCHAR(100),
     pret INT,

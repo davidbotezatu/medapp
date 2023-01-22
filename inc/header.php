@@ -10,14 +10,14 @@
         <title>Login</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-        <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+        <link rel="stylesheet" type="text/css" href="/medapp/inc/styles.css">
     </head>
 
     <body>
         <!-- Meniu Navigare -->
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container-fluid">
-                <a href="/medapp/index.php" class="navbar-brand <?php echo ($pag == "index.php") ? "active" : "" ?>">MedApp</a>
+                <a href="/medapp/index.php" class="navbar-brand" <?php echo ($pag == "index.php") ? 'style = "color: aqua;"' : "" ?>>MedApp</a>
                 
                 <!-- Buton ascundere meniu cand e ecranul prea mic -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
@@ -28,22 +28,22 @@
                 <div class="collapse navbar-collapse" id="navmenu">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="/medapp/html/medici.php" class="nav-link <?php echo ($pag == "medici.php") ? "active" : "" ?>">Medici</a>
+                            <a href="/medapp/display/medici.php" class="nav-link" <?php echo ($pag == "medici.php") ? 'style = "color: aqua;"' : "" ?>>Medici</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/medapp/html/pacienti.php" class="nav-link <?php echo ($pag == "pacienti.php") ? "active" : "" ?>">Pacienti</a>
+                            <a href="/medapp/display/pacienti.php" class="nav-link" <?php echo ($pag == "pacienti.php") ? 'style = "color: aqua;"' : "" ?>>Pacienti</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/medapp/html/consultatii.php" class="nav-link <?php echo ($pag == "consultatii.php") ? "active" : "" ?>">Consultatii</a>
+                            <a href="/medapp/display/consultatii.php" class="nav-link" <?php echo ($pag == "consultatii.php") ? 'style = "color: aqua;"' : "" ?>>Consultatii</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/medapp/html/plati.php" class="nav-link <?php echo ($pag == "plati.php") ? "active" : "" ?>">Plati</a>
+                            <a href="/medapp/display/plati.php" class="nav-link" <?php echo ($pag == "plati.php") ? 'style = "color: aqua;"' : "" ?>>Plati</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/medapp/html/programari.php" class="nav-link <?php echo ($pag == "programari.php") ? "active" : "" ?>">Programari</a>
+                            <a href="/medapp/display/programari.php" class="nav-link" <?php echo ($pag == "programari.php") ? 'style = "color: aqua;"' : "" ?>>Programari</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/medapp/html/catalog.php" class="nav-link <?php echo ($pag == "catalog.php") ? "active" : "" ?>">Catalog</a>
+                            <a href="/medapp/display/catalog.php" class="nav-link" <?php echo ($pag == "catalog.php") ? 'style = "color: aqua;"' : "" ?>>Catalog</a>
                         </li>
                     </ul>
                 </div>
@@ -55,7 +55,49 @@
             </div>
         </nav>
 
+        <div class="container">
+            <div class="row my-5 text-center">
+                <?php 
+                    switch($pag) {
+                        case 'medici.php';
+                            echo '<h1>Medici</h1>';
+                            break;
+                        case 'pacienti.php';
+                            echo '<h1>Pacienti</h1>';
+                            break;
+                        case 'consultatii.php';
+                            echo '<h1>Consultatii</h1>';
+                            break;
+                        case 'plati.php';
+                            echo '<h1>Plati</h1>';
+                            break;
+                        case 'programari.php';
+                            echo '<h1>Programari</h1>';
+                            break;
+                        case 'catalog.php';
+                            echo '<h1>Catalog Servicii</h1>';
+                            break;
+                        case 'catalog_form.php';
+                            echo '<h1>Interventie</h1>';
+                            break;
+                        case 'medici_form.php';
+                            echo '<h1>Medic</h1>';
+                            break;
+                        case 'pacient_form.php';
+                            echo '<h1>Pacient</h1>';
+                            break;
+                        case 'programare_form.php';
+                            echo '<h1>Programare</h1>';
+                            break;
+                        default;
+                            echo '<h1>' . $pag . '</h1>';
+                            break;
+                    }
+                ?>
+            </div>
+        </div>
+
         <div class="container">      
-            <div class="row mt-5">
+            <div class="row">
                 <div class="bg-light rounded-3 col-md-12">
-                    <div class="container-fluid py-5 p-5">
+                    <div class="container-fluid my-3">
