@@ -1,5 +1,5 @@
 CREATE DATABASE medapp;
-CREATE USER medapp@localhost IDENTIFIED BY 'parola';
 USE medapp;
-GRANT ALL ON medapp TO 'medapp'@'localhost';
+CREATE USER medapp@localhost IDENTIFIED BY 'parola';
+GRANT ALL PRIVILEGES ON `medapp`.* TO 'medapp'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;

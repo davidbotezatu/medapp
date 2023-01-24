@@ -1,3 +1,5 @@
+USE medapp;
+
 CREATE TABLE medic (
     cnp CHAR(13) PRIMARY KEY,
     nume VARCHAR(50),
@@ -29,7 +31,7 @@ CREATE TABLE programare (
     id INT PRIMARY KEY AUTO_INCREMENT,
     pacient INT,
     medic CHAR(13),
-    data_programarii DATE,
+    data_programarii DATETIME,
     FOREIGN KEY (pacient) REFERENCES pacient(nr_fisa),
     FOREIGN KEY (medic) REFERENCES medic(cnp)
 );
