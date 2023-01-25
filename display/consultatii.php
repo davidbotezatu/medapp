@@ -39,9 +39,10 @@
                                 <td>$obs</td>
                                 <td>" . getPretConsultatie($id) . "</td>
                                 <td>
-                                    <a href='../forms/programare_form.php?id=$id'>
-                                        <button class='btn btn-success'>Modifica</button>
-                                    </a>
+                                    <a href='../forms/consultatie_form.php?id=$id'>
+                                        <button class='btn btn-success'>Modifica</button></a>
+                                    <a href='interventii.php?id=$id'>
+                                        <button class='btn btn-primary ms-3'>Interventii</button></a>
                                 </td>
                             </tr>"
                         ;

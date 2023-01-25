@@ -1,5 +1,6 @@
 <?php 
     $pag = basename($_SERVER['PHP_SELF']);
+    session_start();
 ?>
 
 <!DOCTYPE html>
@@ -80,11 +81,14 @@
                         case 'pacient_form.php';
                             echo '<h1>Pacient</h1>';
                             break;
-                        case 'programare_form.php';
-                            echo '<h1>Programare</h1>';
-                            break;
                         case 'consultatie_form.php';
                             echo '<h1>Consultatie</h1>';
+                            break;
+                        case 'interventii.php';
+                            echo '<h1>Interventii</h1>';
+                            break;
+                        case 'interventie_form.php';
+                            echo '<h1>Interventie</h1>';
                             break;
                         default;
                             echo '<h1>' . $pag . '</h1>';

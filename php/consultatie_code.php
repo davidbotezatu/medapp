@@ -1,8 +1,6 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/medapp/inc/db.php');
 
-$ssssssssss = "SELECT catalog.nume_interventie, catalog.pret_total FROM interventii LEFT JOIN catalog ON interventii.id_catalog = catalog.id";
-
 //variabile
 $db_table = "consultatie";
 $pacient = $medic = $data = $observatii = $updateID = null;
