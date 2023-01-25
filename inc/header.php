@@ -34,9 +34,6 @@
                             <a href="/medapp/display/pacienti.php" class="nav-link" <?php echo ($pag == "pacienti.php") ? 'style = "color: aqua;"' : "" ?>>Pacienti</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/medapp/display/programari.php" class="nav-link" <?php echo ($pag == "programari.php") ? 'style = "color: aqua;"' : "" ?>>Programari</a>
-                        </li>
-                        <li class="nav-item">
                             <a href="/medapp/display/consultatii.php" class="nav-link" <?php echo ($pag == "consultatii.php") ? 'style = "color: aqua;"' : "" ?>>Consultatii</a>
                         </li>
                         <li class="nav-item">
@@ -70,9 +67,6 @@
                             break;
                         case 'plati.php';
                             echo '<h1>Plati</h1>';
-                            break;
-                        case 'programari.php';
-                            echo '<h1>Programari</h1>';
                             break;
                         case 'catalog.php';
                             echo '<h1>Catalog Servicii</h1>';
