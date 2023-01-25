@@ -34,13 +34,13 @@
                             <a href="/medapp/display/pacienti.php" class="nav-link" <?php echo ($pag == "pacienti.php") ? 'style = "color: aqua;"' : "" ?>>Pacienti</a>
                         </li>
                         <li class="nav-item">
+                            <a href="/medapp/display/programari.php" class="nav-link" <?php echo ($pag == "programari.php") ? 'style = "color: aqua;"' : "" ?>>Programari</a>
+                        </li>
+                        <li class="nav-item">
                             <a href="/medapp/display/consultatii.php" class="nav-link" <?php echo ($pag == "consultatii.php") ? 'style = "color: aqua;"' : "" ?>>Consultatii</a>
                         </li>
                         <li class="nav-item">
                             <a href="/medapp/display/plati.php" class="nav-link" <?php echo ($pag == "plati.php") ? 'style = "color: aqua;"' : "" ?>>Plati</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/medapp/display/programari.php" class="nav-link" <?php echo ($pag == "programari.php") ? 'style = "color: aqua;"' : "" ?>>Programari</a>
                         </li>
                         <li class="nav-item">
                             <a href="/medapp/display/catalog.php" class="nav-link" <?php echo ($pag == "catalog.php") ? 'style = "color: aqua;"' : "" ?>>Catalog</a>
