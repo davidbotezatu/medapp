@@ -25,7 +25,6 @@ CREATE TABLE consultatie (
     medic CHAR(13),
     data_programarii DATETIME,
     observatii VARCHAR(100),
-    pret INT,
     FOREIGN KEY (pacient) REFERENCES pacient(nr_fisa),
     FOREIGN KEY (medic) REFERENCES medic(cnp)
 );
@@ -46,7 +45,9 @@ CREATE TABLE interventii (
 );
 
 CREATE TABLE plati (
-    id INT,
+    id_consultatie INT,
     suma INT,
-    FOREIGN KEY (id) REFERENCES consultatie(id)
+    data_platii DATE,
+    rest_plata INT,
+    FOREIGN KEY (id_consultatie) REFERENCES consultatie(id)
 );

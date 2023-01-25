@@ -90,6 +90,9 @@
                         case 'interventie_form.php';
                             echo '<h1>Interventie</h1>';
                             break;
+                        case 'plata_form.php';
+                            echo '<h1>Suma</h1>';
+                            break;
                         default;
                             echo '<h1>' . $pag . '</h1>';
                             break;

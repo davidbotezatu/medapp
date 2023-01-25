@@ -43,6 +43,9 @@
                                         <button class='btn btn-success'>Modifica</button></a>
                                     <a href='interventii.php?id=$id'>
                                         <button class='btn btn-primary ms-3'>Interventii</button></a>
+                                    <a href='plati.php?id=$id'>
+                                        <button class='btn btn-danger ms-3'>Plati</button>
+                                    </a>
                                 </td>
                             </tr>"
                         ;
