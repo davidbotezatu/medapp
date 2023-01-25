@@ -19,6 +19,17 @@ CREATE TABLE pacient (
     numar_telefon VARCHAR(13)
 );
 
+CREATE TABLE consultatie (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    pacient INT,
+    medic CHAR(13),
+    data_programarii DATETIME,
+    observatii VARCHAR(100),
+    pret INT,
+    FOREIGN KEY (pacient) REFERENCES pacient(nr_fisa),
+    FOREIGN KEY (medic) REFERENCES medic(cnp)
+);
+
 CREATE TABLE catalog (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nume_interventie VARCHAR(100),
@@ -27,23 +38,11 @@ CREATE TABLE catalog (
     pret_total INT
 );
 
-CREATE TABLE programare (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    pacient INT,
-    medic CHAR(13),
-    data_programarii DATETIME,
-    FOREIGN KEY (pacient) REFERENCES pacient(nr_fisa),
-    FOREIGN KEY (medic) REFERENCES medic(cnp)
-);
-
-CREATE TABLE consultatie (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    programare INT,
-    observatii VARCHAR(100),
-    pret INT,
-    rest_plata INT,
-    FOREIGN KEY (programare) REFERENCES programare(id),
-    FOREIGN KEY (pret) REFERENCES catalog(id)
+CREATE TABLE interventii (
+    id_consultatie INT,
+    id_catalog INT,
+    FOREIGN KEY (id_consultatie) REFERENCES consultatie(id),
+    FOREIGN KEY (id_catalog) REFERENCES catalog(id)
 );
 
 CREATE TABLE plati (

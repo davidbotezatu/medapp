@@ -89,6 +89,9 @@
                         case 'programare_form.php';
                             echo '<h1>Programare</h1>';
                             break;
+                        case 'consultatie_form.php';
+                            echo '<h1>Consultatie</h1>';
+                            break;
                         default;
                             echo '<h1>' . $pag . '</h1>';
                             break;
