@@ -37,9 +37,20 @@
                         <li class="nav-item">
                             <a href="/medapp/display/consultatii.php" class="nav-link" <?php echo ($pag == "consultatii.php") ? 'style = "color: aqua;"' : "" ?>>Consultatii</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="/medapp/display/plati.php" class="nav-link" <?php echo ($pag == "plati.php") ? 'style = "color: aqua;"' : "" ?>>Plati</a>
-                        </li>
+                        <?php if($_SESSION['idCons']) {
+                            $flagPlati = ($pag == "plati.php") ? 'style = "color: aqua;"' : "";
+                            $flagInterventii = ($pag == "interventii.php") ? 'style = "color: aqua;"' : "";
+
+                            echo "<li class='nav-item'>
+                                    <a href='/medapp/display/plati.php' class='nav-link' $flagPlati>Plati</a>
+                                </li>
+                                <li class='nav-item'>
+                                    <a href='/medapp/display/interventii.php' class='nav-link' $flagInterventii>Interventii</a>
+                                </li>"
+                            ;
+                        } 
+                        ?>
+                        
                         <li class="nav-item">
                             <a href="/medapp/display/catalog.php" class="nav-link" <?php echo ($pag == "catalog.php") ? 'style = "color: aqua;"' : "" ?>>Catalog</a>
                         </li>
