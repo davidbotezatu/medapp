@@ -26,6 +26,14 @@ if(isset($_GET['id']) && intval($_GET['id'])) {
     $updateNrTel = $rand['numar_telefon'];
 }
 
+if(isset($_POST['cautare'])) {
+    $searchString = filter_input(INPUT_POST, 'cautare', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    if(strlen($searchString) >= 3) {
+        $select = "SELECT * FROM pacient WHERE ('nume' LIKE '%$searchString%') OR ('prenume' LIKE '%$searchString%')";
+        $rezultatSelect = mysqli_query($conn, $select);
+    }
+}
+
 //verificam intai daca sunt date trimise din formularul Pacient (pacient_form.php)
 //iar apoi verificam fiecare input in parte daca a fost completat
 if(isset($_POST['submit'])) {

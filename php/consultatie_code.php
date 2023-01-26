@@ -66,6 +66,10 @@ if(isset($_GET['id']) && intval($_GET['id'])) {
     $updateObs = $rand['observatii'];
 }
 
+if(isset($_POST['cautare'])) {
+    echo "Search active";
+}
+
 //verificam intai daca sunt date trimise din formularul Consultatie (consultatie_form.php)
 //iar apoi verificam fiecare input in parte daca a fost completat
 if(isset($_POST['submit'])){
