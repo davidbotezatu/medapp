@@ -29,7 +29,7 @@ Cerinţe minimale pe care trebuie să le urmărească proiectul:
   
   •	tipărirea fişelor pacienţilor, etc.) - DONE
   
-  •	Se vor putea efectua căutări rapide în baza de date pentru aflarea informaţiilor privind pacienţii şi consultaţiile (listari). 
+  •	Se vor putea efectua căutări rapide în baza de date pentru aflarea informaţiilor privind pacienţii şi consultaţiile (listari) - DONE
 
 •	Listarea programarilor pe o zi/o saptamana
 

@@ -45,7 +45,8 @@ if(isset($_POST['cautare'])) {
     $searchString = filter_input(INPUT_POST, 'cautare', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
     if(strlen($searchString)) {
         $select = $select . " WHERE (medic.nume LIKE '%$searchString%') OR (medic.prenume LIKE '%$searchString%') 
-                        OR (pacient.nume LIKE '%$searchString%') OR (pacient.prenume LIKE '%$searchString%');";
+                        OR (pacient.nume LIKE '%$searchString%') OR (pacient.prenume LIKE '%$searchString%')
+                        OR (consultatie.data_programarii LIKE '%$searchString%')";
         $rezultatSelect = mysqli_query($conn, $select);
 
         //deoarece mysqli_query returneaza un obiect, ne uitam in obiect pentru a vedea numarul de randuri gasite
