@@ -3,9 +3,18 @@
     include($_SERVER['DOCUMENT_ROOT'] . '/medapp/php/consultatie_code.php');
 ?>
 
-<a href="../forms/consultatie_form.php">
-    <button class="btn btn-primary">Adaugare</button>
-</a>
+<div class="row">
+    <div class="col">
+        <a href="../forms/consultatie_form.php">
+            <button class="btn btn-primary">Adaugare</button>
+        </a>
+    </div>
+    <div class="col">
+        <form action="" method="post">
+            <input type="submit" name="restantieri" class="btn btn-danger float-end" value="Restantieri">    
+        </form>
+    </div>
+</div>
 
 <div class="tableFixed mt-3">
 
