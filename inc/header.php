@@ -54,6 +54,9 @@
                         <li class="nav-item">
                             <a href="/medapp/display/catalog.php" class="nav-link" <?php echo ($pag == "catalog.php") ? 'style = "color: aqua;"' : "" ?>>Catalog</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/medapp/display/restantieri.php" class="nav-link" <?php echo ($pag == "restantieri.php") ? 'style = "color: aqua;"' : "" ?>>Restantieri</a>
+                        </li>
                     </ul>
                 </div>
                 
@@ -110,6 +113,9 @@
                             break;
                         case 'plata_form.php';
                             echo '<h1>Suma</h1>';
+                            break;
+                        case 'restantieri.php';
+                            echo '<h1>Restantieri</h1>';
                             break;
                         default;
                             echo '<h1>' . $pag . '</h1>';

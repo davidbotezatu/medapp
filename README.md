@@ -35,7 +35,7 @@ Cerinţe minimale pe care trebuie să le urmărească proiectul:
 
 •	Se vor putea obţine situaţii cu încasările zilnice şi lunare ale cabinetului.
 
-•	Se vor putea obţine la orice moment situaţii cu pacienţii care mai au de achitat sume în contul consultaţiilor.
+•	Se vor putea obţine la orice moment situaţii cu pacienţii care mai au de achitat sume în contul consultaţiilor - DONE
 
 •	Se vor realiza state lunare de plată pentru medici (se va reţine impozit pe salarii şi CAS) şi se vor putea lista fluturaşi de salarii pentru fiecare angajat.
 

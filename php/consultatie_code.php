@@ -110,21 +110,4 @@ if(isset($_POST['cautare'])) {
         }
     }
 }
-
-if(isset($_POST['restantieri'])) {
-    $select = "SELECT DISTINCT consultatie.id, 
-                CONCAT(medic.nume, ' ', medic.prenume) AS medic, 
-                CONCAT(pacient.nume, ' ', pacient.prenume) AS pacient, 
-                consultatie.data_programarii, 
-                consultatie.observatii,
-                MIN(rest_plata)
-            FROM consultatie 
-            LEFT JOIN medic ON consultatie.medic = medic.cnp 
-            LEFT JOIN pacient ON consultatie.pacient = pacient.nr_fisa
-            LEFT JOIN plati on consultatie.id = plati.id_consultatie
-            GROUP BY id_consultatie
-            ORDER BY id";
-    $rezultatSelect = mysqli_query($conn, $select);
-}
-
 ?>

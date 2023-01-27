@@ -10,9 +10,9 @@
         </a>
     </div>
     <div class="col">
-        <form action="" method="post">
-            <input type="submit" name="restantieri" class="btn btn-danger float-end" value="Restantieri">    
-        </form>
+        <a href="restantieri.php">
+            <button class="btn btn-danger float-end">Restantieri</button>
+        </a>
     </div>
 </div>
 
