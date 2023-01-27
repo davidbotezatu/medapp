@@ -6,7 +6,9 @@ Se doreşte realizarea unei aplicaţii pentru evidenţa pacienţilor, consultaţ
 
 La cabinet lucrează mai mulţi medici cărora li s-au întocmit contracte în care sunt specificate toate datele personale necesare (preluate din actele de identitate), salariile de încadrare şi data angajării. - DONE
 
-Pentru fiecare pacient se întocmeşte o fişă în care se consemnează numărul fişei, data întocmirii, numele, data naşterii, adresa şi telefonul pacientului. Pentru a se prezenta la o consultaţie un pacient trebuie să-şi facă o programare specificând data, ora şi medicul solicitat. În momentul prezentării la consultaţie se întocmeşte o foaie de consultaţie în care se completează data consultaţiei şi toate intervenţiile pe care medicul le-a efectuat adăugând eventuale observaţii. - DONE
+Pentru fiecare pacient se întocmeşte o fişă în care se consemnează numărul fişei, data întocmirii, numele, data naşterii, adresa şi telefonul pacientului. - DONE
+
+Pentru a se prezenta la o consultaţie un pacient trebuie să-şi facă o programare specificând data, ora şi medicul solicitat. În momentul prezentării la consultaţie se întocmeşte o foaie de consultaţie în care se completează data consultaţiei şi toate intervenţiile pe care medicul le-a efectuat adăugând eventuale observaţii. - DONE
 
 Firma dispune de un catalog cu toate intervenţiile ce se pot realiza în cabinet (de ex: extracţie, plombă, fixare aparat dentar, etc.) specificându-se pentru fiecare costul materialelor şi tariful pentru prestaţia medicului. - DONE
 
