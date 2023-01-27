@@ -8,6 +8,15 @@
 </a>
 
 <div class="tableFixed mt-3">
+    
+    <?php 
+        //daca nu avem date in urma unei cautari, afisam un mesaj
+        if(!is_null($searchErr)) {
+            echo "<span style='color: crimson;'>$searchErr</span>";
+        }
+    ?>
+
+    <!-- Afisare tabel rezultate -->
     <table class="table table-hover">
         <thead class="table-secondary">
             <tr>

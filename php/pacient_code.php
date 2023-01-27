@@ -7,7 +7,8 @@ $rezultatSelect = mysqli_query($conn, $select);
 
 //variabile
 $nr_fisa = $data_inreg = $nume = $prenume = $data_nasterii = $adresa = $nr_telefon = $updateID = null;
-$fisaErr = $rezultatInsert = $rezultatUpdate = null;
+$rezultatInsert = $rezultatUpdate = null;
+$fisaErr = $searchErr = null;
 
 //verificam daca suntem in pagina de update
 //daca da, luam datele pentru fisa data, pentru a le pune in formular
@@ -26,11 +27,18 @@ if(isset($_GET['id']) && intval($_GET['id'])) {
     $updateNrTel = $rand['numar_telefon'];
 }
 
+//daca avem date in campul de cautare, vom efectua cautarea in baza de date dupa nume, prenume pacient sau numar fisa
 if(isset($_POST['cautare'])) {
     $searchString = filter_input(INPUT_POST, 'cautare', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    if(strlen($searchString) >= 3) {
-        $select = "SELECT * FROM pacient WHERE ('nume' LIKE '%$searchString%') OR ('prenume' LIKE '%$searchString%')";
+    if(strlen($searchString)) {
+        $select = "SELECT * FROM pacient WHERE (`nume` LIKE '%$searchString%') OR (`prenume` LIKE '%$searchString%') OR (`nr_fisa` LIKE '$searchString')";
         $rezultatSelect = mysqli_query($conn, $select);
+
+        //deoarece mysqli_query returneaza un obiect, ne uitam in obiect pentru a vedea numarul de randuri gasite
+        //daca nu avem nici un rand, inseamna ca numele/prenumele/nr_fisa cautate nu exista, si afisam un mesaj utilizatorului
+        if ($rezultatSelect->num_rows == 0) {
+            $searchErr = "Pacientul cautat nu exista";
+        }
     }
 }
 
