@@ -1,7 +1,7 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/medapp/inc/db.php');
 
-$data = $radio = $select = null;
+$data = $radio = $select = $rezultatSelect = null;
 
 if(isset($_POST['submit'])) {
     if(!empty($_POST['data'])) {
