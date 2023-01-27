@@ -63,8 +63,18 @@
                 <!-- Search bar -->
                 <?php
                     if($pag == "pacienti.php" || $pag == "consultatii.php") {
+                        if($pag == "consultatii.php") {
+                            $radio = "<select class='form-select btn btn-outline-info me-3' name='select'>
+                                        <option value='1'>Zi</option>
+                                        <option value='2'>Saptamana</option>
+                                    </select>";
+                        } else {
+                            $radio = "";
+                        }
+
                         echo "<form class='d-flex' role='cautare' method='POST' action='" . htmlspecialchars($_SERVER['PHP_SELF']) . "'>
                                 <input class='form-control me-2' type='search' placeholder='Search' aria-label='Search' name='cautare'>
+                                $radio
                                 <button class='btn btn-outline-success' type='submit'>Search</button>
                             </form>"
                         ;

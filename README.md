@@ -31,7 +31,7 @@ Cerinţe minimale pe care trebuie să le urmărească proiectul:
   
   •	Se vor putea efectua căutări rapide în baza de date pentru aflarea informaţiilor privind pacienţii şi consultaţiile (listari) - DONE
 
-•	Listarea programarilor pe o zi/o saptamana
+•	Listarea programarilor pe o zi/o saptamana - DONE
 
 •	Se vor putea obţine situaţii cu încasările zilnice şi lunare ale cabinetului.
 

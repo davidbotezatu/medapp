@@ -95,9 +95,14 @@ if(isset($_POST['submit'])){
 }
 
 //daca avem date in campul de cautare, vom efectua cautarea in baza de date dupa nume/prenume medic sau nume/prenume pacient
-if(isset($_POST['cautare'])) {
+if(isset($_POST['cautare']) && isset($_POST['select'])) {
     $searchString = filter_input(INPUT_POST, 'cautare', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    if(strlen($searchString)) {
+    $mod = filter_input(INPUT_POST, 'select', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+    
+
+    //daca vrem sa cautam dupa nume/prenume pacient sau medic
+    if($searchString && $mod == "1") {
         $select = $select . " WHERE (medic.nume LIKE '%$searchString%') OR (medic.prenume LIKE '%$searchString%') 
                         OR (pacient.nume LIKE '%$searchString%') OR (pacient.prenume LIKE '%$searchString%')
                         OR (consultatie.data_programarii LIKE '%$searchString%')";
@@ -106,7 +111,36 @@ if(isset($_POST['cautare'])) {
         //deoarece mysqli_query returneaza un obiect, ne uitam in obiect pentru a vedea numarul de randuri gasite
         //daca nu avem nici un rand, inseamna ca valoarea cautata nu exista, si afisam un mesaj utilizatorului
         if ($rezultatSelect->num_rows == 0) {
-            $searchErr = "Numele/Prenumele cautat nu exista";
+            $searchErr = "Numele/Prenumele sau data programarii nu exista";
+        }
+    }
+
+    //daca selectam sa cautam dupa o zi anume
+    if($searchString && $mod == 2) {
+        $sql = "SELECT WEEK('$searchString') as week;";
+        $rezultat = mysqli_query($conn, $sql);
+        $week = mysqli_fetch_column($rezultat);
+        $selectWeek = "SELECT consultatie.id, 
+                        CONCAT(medic.nume, ' ', medic.prenume) AS medic, 
+                        CONCAT(pacient.nume, ' ', pacient.prenume) AS pacient, 
+                        consultatie.data_programarii, 
+                        consultatie.observatii 
+                    FROM consultatie 
+                    LEFT JOIN medic ON consultatie.medic = medic.cnp 
+                    LEFT JOIN pacient ON consultatie.pacient = pacient.nr_fisa 
+                    WHERE WEEK(consultatie.data_programarii) = $week";
+        
+        try {
+            $rezultatSelect = mysqli_query($conn, $selectWeek);
+        } catch (Exception $e) {
+            $searchErr = "Data trebuie sa fie de forma yyyy-mm-dd";
+            $rezultatSelect = mysqli_query($conn, $select);
+        }
+
+        //deoarece mysqli_query returneaza un obiect, ne uitam in obiect pentru a vedea numarul de randuri gasite
+        //daca nu avem nici un rand, inseamna ca valoarea cautata nu exista, si afisam un mesaj utilizatorului
+        if ($rezultatSelect->num_rows == 0) {
+            $searchErr = "Nu exista programari in ziua selectata";
         }
     }
 }
