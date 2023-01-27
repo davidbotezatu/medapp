@@ -60,6 +60,9 @@
                         <li class="nav-item">
                             <a href="/medapp/display/incasari.php" class="nav-link" <?php echo ($pag == "incasari.php") ? 'style = "color: aqua;"' : "" ?>>Incasari</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/medapp/display/salarii.php" class="nav-link" <?php echo ($pag == "salarii.php") ? 'style = "color: aqua;"' : "" ?>>Salarii</a>
+                        </li>
                     </ul>
                 </div>
                 
@@ -132,6 +135,9 @@
                             break;
                         case 'incasari.php';
                             echo '<h1>Incasari</h1>';
+                            break;
+                        case 'salarii.php';
+                            echo '<h1>Salarii</h1>';
                             break;
                         default;
                             echo '<h1>' . $pag . '</h1>';
