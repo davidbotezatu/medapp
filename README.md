@@ -35,7 +35,7 @@ Cerinţe minimale pe care trebuie să le urmărească proiectul:
 
 •	Listarea programarilor pe o zi/o saptamana - DONE
 
-•	Se vor putea obţine situaţii cu încasările zilnice şi lunare ale cabinetului.
+•	Se vor putea obţine situaţii cu încasările zilnice şi lunare ale cabinetului - DONE
 
 •	Se vor putea obţine la orice moment situaţii cu pacienţii care mai au de achitat sume în contul consultaţiilor - DONE
 
