@@ -5,9 +5,17 @@ include($_SERVER['DOCUMENT_ROOT'] . '/medapp/inc/db.php');
 $db_table = "consultatie";
 $pacient = $medic = $data = $observatii = $updateID = null;
 $rezultatInsert = $rezultatUpdate = null;
+$searchErr = null;
 
 //sql select pentru afisare date in tabela din pagina Consultatii
-$select = "SELECT * FROM $db_table";
+$select = "SELECT consultatie.id, 
+            CONCAT(medic.nume, ' ', medic.prenume) AS medic, 
+            CONCAT(pacient.nume, ' ', pacient.prenume) AS pacient, 
+            consultatie.data_programarii, 
+            consultatie.observatii 
+        FROM consultatie 
+        LEFT JOIN medic ON consultatie.medic = medic.cnp 
+        LEFT JOIN pacient ON consultatie.pacient = pacient.nr_fisa";
 $rezultatSelect = mysqli_query($conn, $select);
 
 //sql select pentru nume si numar fisa pacient (numele va fi afisat in formular, iar nr_fisa va fi pus in optiune)
@@ -18,27 +26,7 @@ $rezultatPacient = mysqli_query($conn, $selectPacient);
 $selectMedic = "SELECT cnp, nume, prenume FROM medic";
 $rezultatMedic = mysqli_query($conn, $selectMedic);
 
-//functie cautare medic sau pacient dupa un ID unic (medic - cnp, pacient - nr_fisa)
-//va returna nume+prenume (concat)
-function specificSelect ($id, $flag) {
-    global $conn;
-    $s = null;
-
-    switch($flag) {
-        case 'm':
-            $s = "SELECT nume, prenume FROM medic WHERE cnp = '$id'";
-            break;
-        case 'p':
-            $s = "SELECT nume, prenume FROM pacient WHERE nr_fisa = '$id'";
-            break;
-    }
-
-    $r = mysqli_query($conn, $s);
-    $x = mysqli_fetch_assoc($r);
-
-    return $x['nume'] . ' ' . $x['prenume'];
-}
-
+//calculator pret consultate (interventie 1 + interventie 2 + ... + interventie X)
 function getPretConsultatie($id) {
     global $conn;
     //sql select pentru pretul consultatiei (suma tuturor interventiilor efectuate)
@@ -64,10 +52,6 @@ if(isset($_GET['id']) && intval($_GET['id'])) {
     $updateMedic = $rand['medic'];
     $updateData = $rand['data_programarii'];
     $updateObs = $rand['observatii'];
-}
-
-if(isset($_POST['cautare'])) {
-    echo "Search active";
 }
 
 //verificam intai daca sunt date trimise din formularul Consultatie (consultatie_form.php)

@@ -8,6 +8,15 @@
 </a>
 
 <div class="tableFixed mt-3">
+
+    <?php 
+        //daca nu avem date in urma unei cautari, afisam un mesaj
+        if(!is_null($searchErr)) {
+            echo "<span style='color: crimson;'>$searchErr</span>";
+        }
+    ?>
+
+
     <table class="table table-hover">
         <thead class="table-secondary">
             <tr>
@@ -33,8 +42,8 @@
 
                         echo "<tr>
                                 <th scope='row'>$id</th>
-                                <td>" . specificSelect($pacient, "p") ."</td>
-                                <td>" . specificSelect($medic, "m") . "</td>
+                                <td>$pacient</td>
+                                <td>$medic</td>
                                 <td>$data</td>
                                 <td>$obs</td>
                                 <td>" . getPretConsultatie($id) . "</td>
