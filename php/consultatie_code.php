@@ -40,6 +40,22 @@ function getPretConsultatie($id) {
     return $p;
 }
 
+//daca avem date in campul de cautare, vom efectua cautarea in baza de date dupa nume/prenume medic sau nume/prenume pacient
+if(isset($_POST['cautare'])) {
+    $searchString = filter_input(INPUT_POST, 'cautare', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    if(strlen($searchString)) {
+        $select = $select . " WHERE (medic.nume LIKE '%$searchString%') OR (medic.prenume LIKE '%$searchString%') 
+                        OR (pacient.nume LIKE '%$searchString%') OR (pacient.prenume LIKE '%$searchString%');";
+        $rezultatSelect = mysqli_query($conn, $select);
+
+        //deoarece mysqli_query returneaza un obiect, ne uitam in obiect pentru a vedea numarul de randuri gasite
+        //daca nu avem nici un rand, inseamna ca valoarea cautata nu exista, si afisam un mesaj utilizatorului
+        if ($rezultatSelect->num_rows == 0) {
+            $searchErr = "Numele/Prenumele cautat nu exista";
+        }
+    }
+}
+
 //verificam daca suntem in pagina de update
 //daca da, luam datele pentru id-ul dat, pentru a le pune in formular
 if(isset($_GET['id']) && intval($_GET['id'])) {
