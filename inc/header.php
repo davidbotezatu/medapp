@@ -146,8 +146,8 @@
                         case 'stat_plata.php';
                             echo '<h1>State de plata</h1>';
                             break;
-                        default;
-                            echo '<h1>' . $pag . '</h1>';
+                        case 'index.php';
+                            echo '<h1 class="display-5 fw-bold">Med App</h1>';
                             break;
                     }
                 ?>
