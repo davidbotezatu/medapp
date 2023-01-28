@@ -18,7 +18,7 @@ La o consultaţie un medic poate realiza mai multe intervenţii ce se vor consem
  
 Există situaţii în care pacienţii nu plătesc toată suma în aceeaşi zi, caz în care li se vor elibera mai multe chitanţe în contul aceleiaşi consultaţii. Pentru simplificarea problemei se consideră că la o consultaţie participă un singur medic. - DONE
 
-Se va calcula in fiecare luna numarul de consultatii acordate de fiecare medic si se vor acorda sporuri la salariul de incadrare functie de numarul de consultatii (de exemplu 5% din salariu daca depasesc 10 consultatii. - IN PROGRESS
+Se va calcula in fiecare luna numarul de consultatii acordate de fiecare medic si se vor acorda sporuri la salariul de incadrare functie de numarul de consultatii (de exemplu 5% din salariu daca depasesc 10 consultatii. - PARTIALLY DONE (nu se calculeaza pe luna, se calculeaza per total)
 
 Cerinţe minimale pe care trebuie să le urmărească proiectul:   
 •	Aplicaţia trebuie să permită informatizarea activităţii curente la cabinet:
@@ -39,6 +39,6 @@ Cerinţe minimale pe care trebuie să le urmărească proiectul:
 
 •	Se vor putea obţine la orice moment situaţii cu pacienţii care mai au de achitat sume în contul consultaţiilor - DONE
 
-•	Se vor realiza state lunare de plată pentru medici (se va reţine impozit pe salarii şi CAS) şi se vor putea lista fluturaşi de salarii pentru fiecare angajat. - NOT STARTED
+•	Se vor realiza state lunare de plată pentru medici (se va reţine impozit pe salarii şi CAS) şi se vor putea lista fluturaşi de salarii pentru fiecare angajat. - PARTIALLY DONE (nu se calculeaza pe luna, se calculeaza per total)
 
-•	Interfata - IN PROGRESS
+•	Interfata - DONE
