@@ -37,7 +37,8 @@
                         <li class="nav-item">
                             <a href="/medapp/display/consultatii.php" class="nav-link" <?php echo ($pag == "consultatii.php") ? 'style = "color: aqua;"' : "" ?>>Consultatii</a>
                         </li>
-                        <?php if($_SESSION['idCons']) {
+                        <?php 
+                        if(isset($_SESSION['idCons'])) {
                             $flagPlati = ($pag == "plati.php") ? 'style = "color: aqua;"' : "";
                             $flagInterventii = ($pag == "interventii.php") ? 'style = "color: aqua;"' : "";
 
