@@ -22,7 +22,7 @@ INSERT INTO `medic` (`cnp`, `nume`, `prenume`, `adresa`, `salariu_initial`, `dat
 ('2630314018807', 'Sonda', 'Teodora', 'STR. DORNA nr. 5, CONSTANŢA, 900155', '5500', '2019-07-05'),
 ('1670219019180', 'Teodorescu', 'Andrei', 'STR. BUCOVINA nr. 15 bl. 11 sc. D ap. 2, BOTOŞANI, 710214', '3500', '2018-08-12'),
 ('1781129018354', 'Pop', 'Valentin', 'STR. AVRAM IANCU nr. 158B, COM. FLOREŞTI', '3200', '2023-01-03'),
-('1881027015647', 'Vlăsceanu', 'Roberta', 'Strada Constructorilor 11, Bihor', '6500', '2019-03-15')
+('1881027015647', 'Vlăsceanu', 'Roberta', 'Strada Constructorilor 11, Bihor', '6500', '2019-03-15');
 
 INSERT INTO `pacient` (`nr_fisa`, `data_inregistrarii`, `nume`, `prenume`, `data_nasterii`, `adresa`, `numar_telefon`) VALUES 
 ('1', '2017-01-04', 'Birău', 'Ștefania', '1967-01-29', 'STR. REVOLUŢIEI nr. 37G, CURTICI', '0257-465 710'),
