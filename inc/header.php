@@ -62,7 +62,7 @@
                             <a href="/medapp/display/incasari.php" class="nav-link" <?php echo ($pag == "incasari.php") ? 'style = "color: aqua;"' : "" ?>>Incasari</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/medapp/display/salarii.php" class="nav-link" <?php echo ($pag == "salarii.php") ? 'style = "color: aqua;"' : "" ?>>Salarii</a>
+                            <a href="/medapp/display/sporuri.php" class="nav-link" <?php echo ($pag == "sporuri.php") ? 'style = "color: aqua;"' : "" ?>>Sporuri Salariale</a>
                         </li>
                         <li class="nav-item">
                             <a href="/medapp/display/stat_plata.php" class="nav-link" <?php echo ($pag == "stat_plata.php") ? 'style = "color: aqua;"' : "" ?>>State de plata</a>
@@ -140,8 +140,8 @@
                         case 'incasari.php';
                             echo '<h1>Incasari</h1>';
                             break;
-                        case 'salarii.php';
-                            echo '<h1>Salarii</h1>';
+                        case 'sporuri.php';
+                            echo '<h1>Sporuri</h1>';
                             break;
                         case 'stat_plata.php';
                             echo '<h1>State de plata</h1>';

@@ -1,6 +1,7 @@
-<?php 
-    include($_SERVER['DOCUMENT_ROOT'] . '/medapp/inc/header.php'); 
-    include($_SERVER['DOCUMENT_ROOT'] . '/medapp/php/stat_plata_code.php');
+<?php
+include($_SERVER['DOCUMENT_ROOT'] . '/medapp/inc/header.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/medapp/php/spor_code.php');
+$date = date("Y-m-d");
 ?>
 
 <form action='<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>' class="was-validated" method='post'>
@@ -31,40 +32,36 @@
                 <th scope="col">CNP</th>
                 <th scope="col">Nume</th>
                 <th scope="col">Prenume</th>
-                <th scope="col">Salariu Brut (cu sporuri)</th>
-                <th scope="col">Impozit(16.5%)</th>
-                <th scope="col">CAS(25%)</th>
-                <th scope="col">Salariu Net</th>
+                <th scope="col">Salariu Initial</th>
+                <th scope="col">Nr Consultatii</th>
+                <th scope="col">Sporuri(%)</th>
+                <th scope="col">Salariu Nou</th>
             </tr>
         </thead>
 
         <tbody>
             <?php
-                if($rezultatSelect) {
-                    while($rand = mysqli_fetch_assoc($rezultatSelect)) {
-                        $cnp = $rand['cnp'];
-                        $nume = $rand['nume'];
-                        $prenume = $rand['prenume'];
-                        $salariu = $rand['salariu_initial'];
-                        $nr_cons = $rand['nr_consultatii'];
-                        $spor = calcSpor($nr_cons);
-                        $salariuBrut = calcSalariuBrut($salariu, $spor);
-                        $impozit = $salariuBrut * $impozitVal = 0.165;
-                        $cas = $salariuBrut * $casVal;
-                        $salariuNet = calcSalariuNet($salariuBrut, $impozit, $cas);
+            if ($rezultatSelect) {
+                while ($rand = mysqli_fetch_assoc($rezultatSelect)) {
+                    $cnp = $rand['cnp'];
+                    $nume = $rand['nume'];
+                    $prenume = $rand['prenume'];
+                    $salariu = $rand['salariu_initial'];
+                    $nr_cons = $rand['nr_consultatii'];
+                    $spor = calcSpor($nr_cons);
+                    $salariuNou = calcSalariu($salariu, $spor);
 
-                        echo "<tr>
+                    echo "<tr>
                                 <th scope='row'>$cnp</th>
                                 <td>$nume</td>
                                 <td>$prenume</td>
-                                <td>$salariuBrut</td>
-                                <td>$impozit</td>
-                                <td>$cas</td>
-                                <td>$salariuNet</td>
-                            </tr>"
-                        ;
-                    }
+                                <td>$salariu</td>
+                                <td>$nr_cons</td>
+                                <td>$spor</td>
+                                <td>$salariuNou</td>
+                            </tr>";
                 }
+            }
             ?>
         </tbody>
     </table>
