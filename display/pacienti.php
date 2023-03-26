@@ -1,19 +1,30 @@
-<?php 
-    include($_SERVER['DOCUMENT_ROOT'] . '/medapp/inc/header.php');
-    include($_SERVER['DOCUMENT_ROOT'] . '/medapp/php/pacient_code.php')
+<?php
+include($_SERVER['DOCUMENT_ROOT'] . '/medapp/inc/header.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/medapp/php/pacient_code.php')
 ?>
 
-<a href="../forms/pacient_form.php">
-    <button class="btn btn-primary">Adaugare</button>
-</a>
+<div class="row">
+    <div class="col">
+        <a href="../forms/pacient_form.php">
+            <button class="btn btn-primary">Adaugare</button>
+        </a>
+    </div>
+
+    <div class="col">
+        <form class='d-flex input-group' role='cautare' method='POST' action=' <?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>'>
+                <input class='form-control' type='search' placeholder='Cautare pacient' aria-label='Search' name='cautare'>
+            <button class='btn btn-outline-success' type='submit'>Search</button>
+        </form>
+    </div>
+</div>
 
 <div class="tableFixed mt-3">
-    
-    <?php 
-        //daca nu avem date in urma unei cautari, afisam un mesaj
-        if(!is_null($searchErr)) {
-            echo "<span style='color: crimson;'>$searchErr</span>";
-        }
+
+    <?php
+    //daca nu avem date in urma unei cautari, afisam un mesaj
+    if (!is_null($searchErr)) {
+        echo "<span style='color: crimson;'>$searchErr</span>";
+    }
     ?>
 
     <!-- Afisare tabel rezultate -->
@@ -33,17 +44,17 @@
 
         <tbody>
             <?php
-                if($rezultatSelect) {
-                    while($rand = mysqli_fetch_assoc($rezultatSelect)) {
-                        $fisa = $rand['nr_fisa'];
-                        $data_inreg = $rand['data_inregistrarii'];
-                        $nume = $rand['nume'];
-                        $prenume = $rand['prenume'];
-                        $data_nasterii = $rand['data_nasterii'];
-                        $adresa = $rand['adresa'];
-                        $tel = $rand['numar_telefon'];
+            if ($rezultatSelect) {
+                while ($rand = mysqli_fetch_assoc($rezultatSelect)) {
+                    $fisa = $rand['nr_fisa'];
+                    $data_inreg = $rand['data_inregistrarii'];
+                    $nume = $rand['nume'];
+                    $prenume = $rand['prenume'];
+                    $data_nasterii = $rand['data_nasterii'];
+                    $adresa = $rand['adresa'];
+                    $tel = $rand['numar_telefon'];
 
-                        echo "<tr>
+                    echo "<tr>
                                 <th scope='row'>$fisa</th>
                                 <td>$data_inreg</td>
                                 <td>$nume</td>
@@ -56,10 +67,9 @@
                                         <button class='btn btn-success'>Modifica</button>
                                     </a>
                                 </td>
-                            </tr>"
-                        ;
-                    }
+                            </tr>";
                 }
+            }
             ?>
         </tbody>
     </table>
