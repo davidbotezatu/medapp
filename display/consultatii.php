@@ -1,6 +1,6 @@
-<?php 
-    include($_SERVER['DOCUMENT_ROOT'] . '/medapp/inc/header.php'); 
-    include($_SERVER['DOCUMENT_ROOT'] . '/medapp/php/consultatie_code.php');
+<?php
+include($_SERVER['DOCUMENT_ROOT'] . '/medapp/inc/header.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/medapp/php/consultatie_code.php');
 ?>
 
 <div class="row">
@@ -9,20 +9,34 @@
             <button class="btn btn-primary">Adaugare</button>
         </a>
     </div>
+
     <div class="col">
         <a href="restantieri.php">
-            <button class="btn btn-danger float-end">Restantieri</button>
+            <button class="btn btn-danger">Restantieri</button>
         </a>
     </div>
+
+    <div class="col">
+        <form class='d-flex input-group' role='cautare' method='POST' action=' <?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>'>
+            <input class='form-control' type='search' placeholder='Cautare data' aria-label='Search' name='cautare'>
+            <select class='form-select btn btn-outline-info' name='select'>
+                <option value='1' selected>Zi</option>
+                <option value='2'>Saptamana</option>
+            </select>
+            <button class='btn btn-outline-success' type='submit'>Search</button>
+        </form>
+    </div>
+
+    
 </div>
 
 <div class="tableFixed mt-3">
 
-    <?php 
-        //daca nu avem date in urma unei cautari, afisam un mesaj
-        if(!is_null($searchErr)) {
-            echo "<span style='color: crimson;'>$searchErr</span>";
-        }
+    <?php
+    //daca nu avem date in urma unei cautari, afisam un mesaj
+    if (!is_null($searchErr)) {
+        echo "<span style='color: crimson;'>$searchErr</span>";
+    }
     ?>
 
 
@@ -41,15 +55,15 @@
 
         <tbody>
             <?php
-                if($rezultatSelect) {
-                    while($rand = mysqli_fetch_assoc($rezultatSelect)) {
-                        $id = $rand['id'];
-                        $pacient = $rand['pacient'];
-                        $medic = $rand['medic'];
-                        $data = $rand['data_programarii'];
-                        $obs = $rand['observatii'];
+            if ($rezultatSelect) {
+                while ($rand = mysqli_fetch_assoc($rezultatSelect)) {
+                    $id = $rand['id'];
+                    $pacient = $rand['pacient'];
+                    $medic = $rand['medic'];
+                    $data = $rand['data_programarii'];
+                    $obs = $rand['observatii'];
 
-                        echo "<tr>
+                    echo "<tr>
                                 <th scope='row'>$id</th>
                                 <td>$pacient</td>
                                 <td>$medic</td>
@@ -65,10 +79,9 @@
                                         <button class='btn btn-danger ms-3'>Plati</button>
                                     </a>
                                 </td>
-                            </tr>"
-                        ;
-                    }
+                            </tr>";
                 }
+            }
             ?>
         </tbody>
     </table>
