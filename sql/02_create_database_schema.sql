@@ -51,3 +51,11 @@ CREATE TABLE plati (
     rest_plata INT,
     FOREIGN KEY (id_consultatie) REFERENCES consultatie(id)
 );
+
+CREATE TABLE utilizatori (
+    userid INT PRIMARY KEY AUTO_INCREMENT,
+    nume VARCHAR(100),
+    username VARCHAR(100),
+    email VARCHAR(100),
+    parola VARCHAR (100)
+);
