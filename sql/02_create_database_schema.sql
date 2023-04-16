@@ -54,6 +54,7 @@ CREATE TABLE plati (
 
 CREATE TABLE utilizatori (
     userid INT PRIMARY KEY AUTO_INCREMENT,
+    nume VARCHAR(100),
     username VARCHAR(100),
     email VARCHAR(100),
     parola VARCHAR (100)

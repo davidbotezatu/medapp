@@ -1,7 +1,25 @@
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/medapp/inc/header.php'); ?>
+<?php 
+include($_SERVER['DOCUMENT_ROOT'] . '/medapp/inc/header.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/medapp/php/login_code.php'); 
+
+$err = null;
+
+if(isset($_GET["error"])) {
+    if($_GET["error"] == "emptyInput") {
+        $err = "Completeaza toate campurile!";
+    } else if($_GET["error"] == "userpassincorect") {
+        $err = "Numele si/sau parola sunt incorecte!";
+    }
+}
+
+if($err != null) {
+    echo "<div class='alert alert-danger' role='alert'>$err</div>";
+}
+
+?>
 
 <section>
-    <form action="login_code.php" method="post" class="was-validated">
+    <form action='<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>' method="post" class="was-validated">
         <div class="form-floating mb-3">
             <input type="text" class="form-control is-invalid" name="username" placeholder="username/email" required>
             <label for="username" class="form-label">Username/Email</label>
