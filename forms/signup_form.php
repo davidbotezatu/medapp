@@ -23,7 +23,7 @@ if(isset($_GET["error"])) {
 if($err != null) {
     echo "<div class='alert alert-danger' role='alert'>$err</div>";
 } else if($succes != null) {
-    echo "<div class='alert alert-success' role='alert'>$err</div>";
+    echo "<div class='alert alert-success' role='alert'>$succes</div>";
 }
 
 ?>
