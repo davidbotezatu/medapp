@@ -3,8 +3,8 @@
 <section>
     <form action="login_code.php" method="post" class="was-validated">
         <div class="form-floating mb-3">
-            <input type="text" class="form-control is-invalid" name="username" placeholder="username" required>
-            <label for="username" class="form-label">Username Or Email</label>
+            <input type="text" class="form-control is-invalid" name="username" placeholder="username/email" required>
+            <label for="username" class="form-label">Username/Email</label>
         </div>
         <div class="form-floating mb-3">
             <input type="password" class="form-control is-invalid" name="parola" placeholder="parola" required>
