@@ -37,7 +37,6 @@ function loginUser($conn, $username, $parola) {
         exit();
     } else if ($verificaParola === true) {
         $_SESSION["userid"] = $res["userid"];
-        $_SESSION["username"] = $res["username"];
         header("Location: ../index.php");
         exit();
     }

@@ -26,61 +26,76 @@ session_start();
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Optiuni Meniu -->
-            <div class="collapse navbar-collapse" id="navmenu">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="/medapp/display/medici.php" class="nav-link" <?php echo ($pag == "medici.php") ? 'style = "color: aqua;"' : "" ?>>Medici</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/medapp/display/pacienti.php" class="nav-link" <?php echo ($pag == "pacienti.php") ? 'style = "color: aqua;"' : "" ?>>Pacienti</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/medapp/display/consultatii.php" class="nav-link" <?php echo ($pag == "consultatii.php") ? 'style = "color: aqua;"' : "" ?>>Consultatii</a>
-                    </li>
-
-                    <?php
-                    if (isset($_SESSION['idCons'])) {
-                        $flagPlati = ($pag == "plati.php") ? 'style = "color: aqua;"' : "";
-                        $flagInterventii = ($pag == "interventii.php") ? 'style = "color: aqua;"' : "";
-
-                        echo "<li class='nav-item'>
-                                    <a href='/medapp/display/plati.php' class='nav-link' $flagPlati>Plati</a>
+            <?php
+                //Optiuni Meniu
+                if(isset($_SESSION["userid"])) {
+                    print (
+                        "<div class=\"collapse navbar-collapse\" id=\"navmenu\">
+                            <ul class=\"navbar-nav\">
+                                <li class=\"nav-item\">
+                                    <a href=\"/medapp/display/medici.php\" class=\"nav-link\"" . (($pag == "medici.php") ? 'style = "color: aqua;"' : "") . ">Medici</a>
                                 </li>
-                                <li class='nav-item'>
-                                    <a href='/medapp/display/interventii.php' class='nav-link' $flagInterventii>Interventii</a>
-                                </li>";
-                    }
-                    ?>
-
-                    <li class="nav-item">
-                        <a href="/medapp/display/catalog.php" class="nav-link" <?php echo ($pag == "catalog.php") ? 'style = "color: aqua;"' : "" ?>>Catalog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/medapp/display/restantieri.php" class="nav-link" <?php echo ($pag == "restantieri.php") ? 'style = "color: aqua;"' : "" ?>>Restantieri</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/medapp/display/incasari.php" class="nav-link" <?php echo ($pag == "incasari.php") ? 'style = "color: aqua;"' : "" ?>>Incasari</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/medapp/display/sporuri.php" class="nav-link" <?php echo ($pag == "sporuri.php") ? 'style = "color: aqua;"' : "" ?>>Sporuri Salariale</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/medapp/display/stat_plata.php" class="nav-link" <?php echo ($pag == "stat_plata.php") ? 'style = "color: aqua;"' : "" ?>>State de plata</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="collapse navbar-collapse d-flex justify-content-end" id="navmenu">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="/medapp/forms/signup_form.php" class="nav-link" <?php echo ($pag == "signup_form.php") ? 'style = "color: aqua;"' : "" ?>>Inregistrare</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/medapp/forms/login_form.php" class="nav-link" <?php echo ($pag == "login_form.php") ? 'style = "color: aqua;"' : "" ?>>Login</a>
-                    </li>
-                </ul>
-            </div>
+                                <li class=\"nav-item\">
+                                    <a href=\"/medapp/display/pacienti.php\" class=\"nav-link\"" . (($pag == "pacienti.php") ? 'style = "color: aqua;"' : "") . ">Pacienti</a>
+                                </li>
+                                <li class=\"nav-item\">
+                                    <a href=\"/medapp/display/consultatii.php\" class=\"nav-link\"" . (($pag == "consultatii.php") ? 'style = "color: aqua;"' : "") . ">Consultatii</a>
+                                </li>"
+                    );
+            
+                                if (isset($_SESSION['idCons'])) {
+                                    $flagPlati = ($pag == "plati.php") ? 'style = "color: aqua;"' : "";
+                                    $flagInterventii = ($pag == "interventii.php") ? 'style = "color: aqua;"' : "";
+            
+                                    echo "<li class='nav-item'>
+                                                <a href='/medapp/display/plati.php' class='nav-link' $flagPlati>Plati</a>
+                                            </li>
+                                            <li class='nav-item'>
+                                                <a href='/medapp/display/interventii.php' class='nav-link' $flagInterventii>Interventii</a>
+                                            </li>";
+                                }
+            
+                    print ("<li class=\"nav-item\">
+                                    <a href=\"/medapp/display/catalog.php\" class=\"nav-link\"" . (($pag == "catalog.php") ? 'style = "color: aqua;"' : "") . ">Catalog</a>
+                                </li>
+                                <li class=\"nav-item\">
+                                    <a href=\"/medapp/display/restantieri.php\" class=\"nav-link\"" . (($pag == "restantieri.php") ? 'style = "color: aqua;"' : "") . ">Restantieri</a>
+                                </li>
+                                <li class=\"nav-item\">
+                                    <a href=\"/medapp/display/incasari.php\" class=\"nav-link\"" . (($pag == "incasari.php") ? 'style = "color: aqua;"' : "") . ">Incasari</a>
+                                </li>
+                                <li class=\"nav-item\">
+                                    <a href=\"/medapp/display/sporuri.php\" class=\"nav-link\"" . (($pag == "sporuri.php") ? 'style = "color: aqua;"' : "") . ">Sporuri Salariale</a>
+                                </li>
+                                <li class=\"nav-item\">
+                                    <a href=\"/medapp/display/stat_plata.php\" class=\"nav-link\"" . (($pag == "stat_plata.php") ? 'style = "color: aqua;"' : "") . ">State de plata</a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class=\"collapse navbar-collapse d-flex justify-content-end\" id=\"navmenu\">
+                            <ul class=\"navbar-nav\">
+                                <li class=\"nav-item\">
+                                    <a href=\"/medapp/php/logout_code.php\" class=\"nav-link\">Logout</a>
+                                </li>
+                            </ul>
+                        </div>"
+                    );
+                } else {
+                    print(
+                        "<div class=\"collapse navbar-collapse d-flex justify-content-end\" id=\"navmenu\">
+                            <ul class=\"navbar-nav\">
+                                <li class=\"nav-item\">
+                                    <a href=\"/medapp/forms/signup_form.php\" class=\"nav-link\"" . (($pag == "signup_form.php") ? 'style = "color: aqua;"' : "") . ">Inregistrare</a>
+                                </li>
+                                <li class=\"nav-item\">
+                                    <a href=\"/medapp/forms/login_form.php\" class=\"nav-link\"" . (($pag == "login_form.php") ? 'style = "color: aqua;"' : "") . ">Login</a>
+                                </li>
+                            </ul>
+                        </div>"
+                    );
+                }
+            ?>
         </div>
     </nav>
 
