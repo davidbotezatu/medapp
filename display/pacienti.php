@@ -1,6 +1,11 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/medapp/inc/header.php');
-include($_SERVER['DOCUMENT_ROOT'] . '/medapp/php/pacient_code.php')
+include($_SERVER['DOCUMENT_ROOT'] . '/medapp/php/pacient_code.php');
+
+if(empty($_SESSION['userid'])) {
+    header("Location: ../index.php");
+    die();
+}
 ?>
 
 <div class="row">

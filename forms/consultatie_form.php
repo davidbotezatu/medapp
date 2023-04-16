@@ -1,6 +1,11 @@
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . '/medapp/inc/header.php');
 include($_SERVER['DOCUMENT_ROOT'] . '/medapp/php/consultatie_code.php');
+
+if(empty($_SESSION['userid'])) {
+    header("Location: ../index.php");
+    die();
+}
 ?>
 
 <!-- Formular introducere sau editare programari -->

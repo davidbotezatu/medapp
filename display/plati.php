@@ -2,6 +2,11 @@
     include($_SERVER['DOCUMENT_ROOT'] . '/medapp/inc/header.php'); 
     include($_SERVER['DOCUMENT_ROOT'] . '/medapp/php/plata_code.php');
 
+    if(empty($_SESSION['userid'])) {
+        header("Location: ../index.php");
+        die();
+    }
+
     //Afisam butonul de adaugare plati doar daca mai avem plati de facut. Daca am achitat tot, nu mai afisam butonul de delete.
     if($rest_plata > 0 || is_null($rest_plata)) {
         echo "<a href='../forms/plata_form.php'>

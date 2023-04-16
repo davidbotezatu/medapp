@@ -1,6 +1,11 @@
 <?php 
     include($_SERVER['DOCUMENT_ROOT'] . '/medapp/inc/header.php'); 
     include($_SERVER['DOCUMENT_ROOT'] . '/medapp/php/stat_plata_code.php');
+
+    if(empty($_SESSION['userid'])) {
+        header("Location: ../index.php");
+        die();
+    }
 ?>
 
 <form action='<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>' class="was-validated" method='post'>
